@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>drift king</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: black;
+			overflow: hidden;
+		}
+		#unity-canvas {
+			width: 100vw;
+			height: 100vh;
+			display: block;
+			background: black;
+		}
+		/* Loading message styles */
+		#loading-message {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-family: sans-serif;
+			font-size: 24px;
+			z-index: 10;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Loading Message -->
+	<div id="loading-message">Game is loading, please wait...</div>
+
+	<!-- Game Canvas -->
+	<canvas id="unity-canvas" width="756" height="681" style="cursor: default;"></canvas>
+
+	<!-- Game Script -->
+	<script src="game.loader.js"></script>
+	<script>
+		const loadingMessage = document.getElementById('loading-message');
+
+		createUnityInstance(document.querySelector("#unity-canvas"), {
+			dataUrl: "game.data.unityweb",
+			frameworkUrl: "game.framework.js.unityweb",
+			codeUrl: "game.wasm.unityweb",
+			streamingAssetsUrl: "StreamingAssets",
+			companyName: "MiEmpresa",
+			productName: "MiJuego",
+			productVersion: "1.0",
+		}).then((unityInstance) => {
+			console.log("Juego cargado correctamente");
+			// Hide loading message when game has loaded
+			loadingMessage.style.display = 'none';
+		}).catch((message) => {
+			console.error(message);
+			loadingMessage.textContent = 'Error loading the game.';
+		});
+	</script>
+
+	<script src="webgl.framework.js"></script>
+
+</body>
+</html>
