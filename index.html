@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Choose a Game</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0b0b0b;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .game-box {
+      width: 220px;
+      height: 140px;
+      background: linear-gradient(135deg, #1a1a1a, #000);
+      border: 2px solid #333;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    .game-box:hover {
+      transform: translateY(-8px) scale(1.05);
+      border-color: #00ffcc;
+      background: linear-gradient(135deg, #00ffcc, #003333);
+      color: black;
+      box-shadow: 0 15px 40px rgba(0, 255, 204, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a class="game-box" href="1/index.html">GAME 1</a>
+    <a class="game-box" href="2/index.html">GAME 2</a>
+  </div>
+</body>
+</html>
